@@ -45,6 +45,7 @@ public class Menu {
     }
 
     private static void viewByName() {
+        System.out.print("name: ");
         String input = scanner.nextLine();
         Mazlicek mazlicek = mazlic.stream().filter(mazlicekus -> input.equals(mazlicekus.getJmeno())).findFirst().orElse(null);
         if (mazlicek == null)
@@ -57,7 +58,7 @@ public class Menu {
         mazlic.forEach(mazlicek -> {
             System.out.print(mazlicek.getJmeno());
             if (!mazlicek.equals(mazlic.getLast()))
-                System.out.println(", ");
+                System.out.print(", ");
             else
                 System.out.println(".");
         });
