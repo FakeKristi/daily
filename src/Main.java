@@ -16,7 +16,7 @@ public class Main {
         mazlicci.add(new Mazlicek("The Perverse", Druh.kocka, 900000, 3));
         mazlicci.add(new Mazlicek("The Returned", Druh.kocka, 900000, 3));
 
-        mazlicci.forEach(mazlicek -> System.out.println(mazlicek));
+        //mazlicci.forEach(mazlicek -> System.out.println(mazlicek));
 
         Menu.start(mazlicci);
     }
