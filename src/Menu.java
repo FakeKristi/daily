@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 
 public class Menu {
     private static Scanner scanner = new Scanner(System.in);
@@ -9,29 +10,37 @@ public class Menu {
         mazlic = mazlicci;
         boolean running = true;
         String input;
+        System.out.println("Running mazlíčci manager");
         while (running) {
-            input = scanner.nextLine();
-            switch (input) {
-                case "help" -> help();
-                case "view" -> view();
-                case "add" -> add();
-                case "remove" -> remove();
-                default -> help();
+            try {
+                System.out.print("action: ");
+                input = scanner.nextLine();
+                switch (input) {
+                    case "help" -> help();
+                    case "view" -> view();
+                    case "add" -> add();
+                    case "remove" -> remove();
+                    default -> help();
+                }
+            } catch (Exception e) {
+                System.out.println(e);
             }
         }
 
     }
 
     private static void help() {
-        System.out.println("help, view, add, remove");
+        System.out.println("You can use: help, view, add, remove");
     }
     private static void view() {
+        System.out.print("index: ");
         int param = scanner.nextInt();
         scanner.nextLine();
         System.out.println(mazlic.get(param));
     }
     private static void add() {
         System.out.println("format: jmeno druh vek vaha");
+        System.out.print("adding: ");
         String param = scanner.nextLine();
         String[] params = param.split(" ");
         try {
@@ -52,6 +61,7 @@ public class Menu {
         }
     }
     private static void remove() {
+        System.out.print("index: ");
         int param = scanner.nextInt();
         scanner.nextLine();
         try {
